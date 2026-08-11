@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="RAIN PREVIEWは、現在地セルの気象庁雨量強度色と雨雲地図を確認できるiPhoneアプリです。">
+  <meta name="theme-color" content="#075985">
+  <link rel="canonical" href="https://tenkarars.github.io/rain-preview-pages/">
+  <link rel="stylesheet" href="assets/site.css">
+  <title>RAIN PREVIEW — 現在地の雨量強度色を先に見る</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="./" aria-label="RAIN PREVIEW トップ">RAIN PREVIEW</a>
+      <nav class="site-nav" aria-label="主要ナビゲーション">
+        <a href="#how-it-works">機能</a>
+        <a href="privacy/">プライバシー</a>
+        <a href="support/">サポート</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="page-shell">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow">iPhone weather map</p>
+        <h1 id="hero-title">現在地の雨量強度色を、<span class="nowrap">地図より先に。</span></h1>
+        <p class="lead">
+          通常起動時、取得できた気象庁データから現在地セルの最新実況解析と、
+          同じ解析時刻を基準にした最大60分先までの予測色を一度だけ順に表示します。
+          終了後は、雨雲を地図上で確認する通常画面になります。
+        </p>
+      </div>
+      <aside class="hero-card" aria-label="起動時表示の時系列例">
+        <div class="sequence" aria-hidden="true">
+          <span>0</span><span>+5</span><span>+10</span>
+          <span>+15</span><span>+20</span><span>+60</span>
+        </div>
+        <p>0は最新実況解析、+5以降はその解析時刻から何分先かを示します。</p>
+      </aside>
+    </section>
+
+    <section id="how-it-works" class="section" aria-labelledby="flow-title">
+      <p class="eyebrow">Launch sequence</p>
+      <h2 id="flow-title">起動してから、いつもの地図まで</h2>
+      <p class="section-intro">
+        起動時の色表示は、地図上で雨域を動かす自動再生ではありません。
+        現在地セルから得た1色を画面全体へ均一に重ねる短い導入表示です。
+      </p>
+      <div class="card-grid">
+        <article class="card">
+          <span class="step-number" aria-hidden="true">1</span>
+          <h3>データと現在地を確認</h3>
+          <p>オンライン取得、利用可能な現在地、最新実況解析、同じ解析世代の予測がすべて揃った場合だけ準備します。</p>
+        </article>
+        <article class="card">
+          <span class="step-number" aria-hidden="true">2</span>
+          <h3>色と数値を順に表示</h3>
+          <p>通常は0、+5、+10から+60まで。各フレームを最低0.5秒ずつ、飛ばさず表示します。雨色がないセルは透明です。</p>
+        </article>
+        <article class="card">
+          <span class="step-number" aria-hidden="true">3</span>
+          <h3>雨雲地図へ移行</h3>
+          <p>導入表示が終わると、雨雲ラスタを地図上で確認し、時刻、位置、拡大率を手動で操作できる通常画面に戻ります。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="display-title">
+      <p class="eyebrow">What the colors mean</p>
+      <h2 id="display-title">表示しているのは「現在地セルの1色」</h2>
+      <div class="card-grid">
+        <article class="card">
+          <h3>色は気象庁データのまま</h3>
+          <p>現在地を含む気象庁タイルの1ピクセルを端末内で読み取り、そのRGB色を再着色や補間をせず使います。</p>
+        </article>
+        <article class="card">
+          <h3>背景は最新実況</h3>
+          <p>雨色は75%の不透明度で画面全体へ重なるため、背後に地図と最新実況解析の雨域が見える場合があります。背後の雨域は予測雨域ではありません。</p>
+        </article>
+        <article class="card">
+          <h3>透明も有効な表示</h3>
+          <p>透明は、その時刻の現在地セルに雨色がないことを表します。黒や白などの代替色へ置き換えません。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="conditions-title">
+      <p class="eyebrow">When it appears</p>
+      <h2 id="conditions-title">表示されない起動もあります</h2>
+      <p class="section-intro">
+        起動時表示は、通常のコールド起動でプロセス内に一度だけ実行します。
+        位置情報が許可されない、オフライン、必要な予測が揃わない、色取得に失敗したなどの場合は、
+        一部だけを見せず通常画面へ進みます。手動更新やバックグラウンド復帰では再実行しません。
+      </p>
+      <div class="notice">
+        <h3>安全に関する重要事項</h3>
+        <p>
+          本アプリは独自予測を作成せず、雨の開始時刻や実際の降雨を保証しません。
+          通行、避難、登山などの可否や安全を判断する機能ではありません。
+          現地状況、自治体の案内、気象庁などの公式情報をあわせて確認してください。
+        </p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="sources-title">
+      <p class="eyebrow">Data &amp; software</p>
+      <h2 id="sources-title">データと地図の出典</h2>
+      <ul class="link-list">
+        <li>雨量データ：<a href="https://www.jma.go.jp/bosai/nowc/">気象庁「雨雲の動き／高解像度降水ナウキャスト」</a></li>
+        <li>背景地図：<a href="https://maps.gsi.go.jp/vector/">国土地理院「地理院地図Vector」</a></li>
+        <li>地図描画：<a href="https://maplibre.org/maplibre-native/ios/latest/documentation/maplibre/">MapLibre Native</a>（BSD 2-Clause License）</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© 2026 RAIN PREVIEW</p>
+      <nav class="footer-links" aria-label="フッターナビゲーション">
+        <a href="privacy/">プライバシーポリシー</a>
+        <a href="support/">サポート</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

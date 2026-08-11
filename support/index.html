@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="RAIN PREVIEWのサポート、よくある質問、不具合報告窓口です。">
+  <meta name="theme-color" content="#075985">
+  <link rel="canonical" href="https://tenkarars.github.io/rain-preview-pages/support/">
+  <link rel="stylesheet" href="../assets/site.css">
+  <title>サポート — RAIN PREVIEW</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="../" aria-label="RAIN PREVIEW トップ">RAIN PREVIEW</a>
+      <nav class="site-nav" aria-label="主要ナビゲーション">
+        <a href="../">トップ</a>
+        <a href="../privacy/">プライバシー</a>
+        <a href="./" aria-current="page">サポート</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="page-shell prose">
+    <p class="eyebrow">Support</p>
+    <h1>サポート</h1>
+    <p class="lead">
+      起動時の色表示、雨雲地図、位置情報、データ取得について案内します。
+      天候や避難判断に関する個別の相談窓口ではありません。
+    </p>
+
+    <h2>よくある質問</h2>
+    <details>
+      <summary>起動時に色が表示されません</summary>
+      <p>
+        起動時表示は、通常のコールド起動でオンライン取得、利用可能な現在地、最新実況解析、
+        同じ解析時刻を基準にした将来予測、全フレームの色取得が成功した場合だけ、プロセス内で一度実行します。
+        位置情報拒否、取得タイムアウト、オフライン、予測なし、取得失敗などの場合は、通常画面へ進みます。
+      </p>
+    </details>
+    <details>
+      <summary>「0」「+5」「+60」は何を表しますか</summary>
+      <p>
+        0は取得できた気象庁の最新実況解析です。端末時計の現在時刻と同じとは限りません。
+        +5以降は、その実況解析時刻を基準にした何分先の予測かを表します。
+        古い予測世代と新しい実況解析は混在させません。
+      </p>
+    </details>
+    <details>
+      <summary>透明な画面はエラーですか</summary>
+      <p>
+        エラーではありません。その時刻の現在地セルに気象庁の雨量強度色がない有効なフレームです。
+        背後の地図と最新実況解析の雨域がそのまま見える場合があります。
+      </p>
+    </details>
+    <details>
+      <summary>背景の雨域も予測ですか</summary>
+      <p>
+        いいえ。起動時表示で背景に見える雨域は最新実況解析です。
+        予測として切り替わるのは、現在地セルから取得して画面全体へ均一に重ねる雨量強度色と、中央の相対分数です。
+        予測雨域を地図上で自動再生しているわけではありません。
+      </p>
+    </details>
+    <details>
+      <summary>位置情報はどこへ送られますか</summary>
+      <p>
+        正確な緯度・経度は端末内で処理します。起動時表示では、位置を粗い地図タイル番号へ変換して、
+        現在地を含む雨量タイルを気象庁へ要求します。タイル番号からおおよその地域を推定でき、
+        通信先にはIPアドレスなどの接続情報も伝わる場合があります。詳しくは
+        <a href="../privacy/">プライバシーポリシー</a>を確認してください。
+      </p>
+    </details>
+    <details>
+      <summary>表示と実際の雨が違います</summary>
+      <p>
+        レーダーの運用状況、電波の反射、地形、データ更新の遅れなどにより、実際の降雨と異なる場合があります。
+        本アプリは雨の開始時刻や降雨を保証しません。現地状況と気象庁などの公式情報を確認してください。
+      </p>
+    </details>
+
+    <h2>不具合を報告する</h2>
+    <p>
+      <a href="https://github.com/tenkarars/rain-preview-pages/issues/new">GitHubでサポート依頼を作成</a>
+      してください。報告には、次の情報があると確認しやすくなります。
+    </p>
+    <ul>
+      <li>アプリのバージョンとビルド番号</li>
+      <li>iOSのバージョンとiPhoneの機種</li>
+      <li>発生したおおよその時刻</li>
+      <li>操作手順と表示されたメッセージ</li>
+      <li>位置情報の許可状態と通信状態</li>
+    </ul>
+    <div class="notice">
+      <h3>公開しないでください</h3>
+      <p>
+        GitHub Issueは公開されます。正確な現在地、住所、氏名、メールアドレス、電話番号、
+        Apple ID、端末識別子などの個人情報は記載しないでください。
+      </p>
+    </div>
+
+    <h2>公式情報</h2>
+    <ul class="link-list">
+      <li><a href="https://www.jma.go.jp/bosai/nowc/">気象庁「雨雲の動き」</a></li>
+      <li><a href="https://www.jma.go.jp/jma/kishou/know/kurashi/highres_nowcast.html">気象庁「高解像度降水ナウキャスト」の解説と留意点</a></li>
+      <li><a href="https://maps.gsi.go.jp/vector/">国土地理院「地理院地図Vector」</a></li>
+    </ul>
+
+    <h2>安全に関する注意</h2>
+    <p>
+      本アプリは独自の気象予測を作成せず、危険、避難時刻、通行可否、登山可否を判定しません。
+      緊急時は自治体、気象庁、警察・消防などの公式情報と指示に従ってください。
+    </p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© 2026 RAIN PREVIEW</p>
+      <nav class="footer-links" aria-label="フッターナビゲーション">
+        <a href="../">トップ</a>
+        <a href="../privacy/">プライバシーポリシー</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
