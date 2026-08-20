@@ -29,14 +29,14 @@
         <h1 id="hero-title">現在地の雨量強度色を、<span class="nowrap">地図より先に。</span></h1>
         <p class="lead">
           通常起動時、取得できた気象庁データから現在地セルの最新実況解析と、
-          同じ解析時刻を基準にした最大60分先までの予測色を一度だけ順に表示します。
+          同じ解析時刻を基準にした最大30分先までの予測色を一度だけ順に表示します。
           終了後は、雨雲を地図上で確認する通常画面になります。
         </p>
       </div>
       <aside class="hero-card" aria-label="起動時表示の時系列例">
         <div class="sequence" aria-hidden="true">
           <span>0</span><span>+5</span><span>+10</span>
-          <span>+15</span><span>+20</span><span>+60</span>
+          <span>+15</span><span>+20</span><span>+30</span>
         </div>
         <p>0は最新実況解析、+5以降はその解析時刻から何分先かを示します。</p>
       </aside>
@@ -58,7 +58,7 @@
         <article class="card">
           <span class="step-number" aria-hidden="true">2</span>
           <h3>色と数値を順に表示</h3>
-          <p>通常は0、+5、+10から+60まで。各フレームを最低0.5秒ずつ、飛ばさず表示します。雨色がないセルは透明です。</p>
+          <p>通常は0、+5、+10から+30まで。各フレームを1秒ずつ、飛ばさず表示します。雨色がないセルは透明です。</p>
         </article>
         <article class="card">
           <span class="step-number" aria-hidden="true">3</span>
